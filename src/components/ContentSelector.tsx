@@ -1,8 +1,8 @@
 import React from "react";
 
 interface ContentSelectorProps {
-  selectedContent: string;
-  onContentChange: (content: string) => void;
+  selectedContent: "question" | "hints" | "solution" | "detailedSolution";
+  onContentChange: (content: "question" | "hints" | "solution" | "detailedSolution") => void;
 }
 
 const ContentSelector: React.FC<ContentSelectorProps> = ({
