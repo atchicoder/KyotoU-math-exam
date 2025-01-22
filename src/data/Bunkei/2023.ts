@@ -1,4 +1,6 @@
-export const Bunkei2023 = [
+import { Problem } from "../../types";
+
+export const Bunkei2023: Problem[] = [
   {
     "year": 2023,
     "number": 1,
@@ -28,8 +30,7 @@ export const Bunkei2023 = [
         "5. \\(a = \\sqrt[3]{3}\\) を戻して \\(\\frac{19 + 7\\sqrt[3]{3} - 9\\sqrt[3]{9}}{2}\\)。"
       ]
     }
-  }
-  ,
+  },
   {
     "year": 2023,
     "number": 2,
@@ -104,8 +105,7 @@ export const Bunkei2023 = [
         "   よって一辺の長さは約 1.1756 となり、1.15 より大きい。"
       ]
     }
-  }
-  ,
+  },
   {
     "year": 2023,
     "number": 4,
@@ -180,8 +180,7 @@ export const Bunkei2023 = [
         "   よって、数列の一般項は \\(\\boxed{a_n = (n+1)\\cdot2^n - 1}\\) である。"
       ]
     }
-  }
-  ,
+  },
   {
     "year": 2023,
     "number": 5,
@@ -229,3 +228,5 @@ export const Bunkei2023 = [
     }
   }
 ];
+
+export default Bunkei2023;

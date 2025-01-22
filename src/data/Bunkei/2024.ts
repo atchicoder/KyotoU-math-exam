@@ -1,4 +1,6 @@
-export const Bunkei2024 = [
+import { Problem } from "../../types";
+
+export const Bunkei2024: Problem[] = [
   {
     "year": 2024,
     "number": 1,
@@ -152,3 +154,5 @@ export const Bunkei2024 = [
       }
     }
 ];
+
+export default Bunkei2024;
