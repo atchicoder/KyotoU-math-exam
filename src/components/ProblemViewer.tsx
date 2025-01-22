@@ -2,12 +2,12 @@ import React from "react";
 import MathJaxRenderer from "./MathJaxRenderer";
 
 interface ProblemViewerProps {
-  contentType: string; // 表示するコンテンツの種類
+  contentType: string;
   problemContent: {
     question: string;
     hints: string[];
     solution: string | { [key: string]: string };
-    detailedSolution: string[] | string;
+    detailedSolution: string[];
   };
 }
 
@@ -15,43 +15,46 @@ const ProblemViewer: React.FC<ProblemViewerProps> = ({
   contentType,
   problemContent,
 }) => {
-  if (!problemContent) {
-    return <p>該当するデータがありません。</p>;
-  }
-
-  const renderContent = (content: string | string[]) => {
-    if (Array.isArray(content)) {
-      return content.join("\n");
+  // solution を安全にレンダリングする関数
+  const renderSolution = (solution: string | { [key: string]: string }) => {
+    if (typeof solution === "string") {
+      return solution;
+    } else {
+      return Object.entries(solution)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join("<br/>"); // HTML の改行を適用
     }
-    return content;
   };
 
-  return (
-    <div>
-      {contentType === "question" && (
-        <MathJaxRenderer key="question" content={problemContent.question} />
-      )}
-      {contentType === "hints" && (
-        <MathJaxRenderer key="hints" content={renderContent(problemContent.hints)} />
-      )}
-      {contentType === "solution" && (
-        <MathJaxRenderer
-          key="solution"
-          content={
-            typeof problemContent.solution === "string"
-              ? problemContent.solution
-              : Object.values(problemContent.solution).join("\n")
-          }
-        />
-      )}
-      {contentType === "detailedSolution" && (
-        <MathJaxRenderer
-          key="detailedSolution"
-          content={renderContent(problemContent.detailedSolution)}
-        />
-      )}
-    </div>
-  );
+  // contentType に応じて MathJaxRenderer に渡す内容を決定
+  const renderContent = () => {
+    switch (contentType) {
+      case "question":
+        return <MathJaxRenderer content={problemContent.question} />;
+      case "hints":
+        return (
+          <MathJaxRenderer
+            content={problemContent.hints.join("<br/>")} // ヒントを改行付きで表示
+          />
+        );
+      case "solution":
+        return (
+          <MathJaxRenderer
+            content={renderSolution(problemContent.solution)} // solution を処理して表示
+          />
+        );
+      case "detailedSolution":
+        return (
+          <MathJaxRenderer
+            content={problemContent.detailedSolution.join("<br/>")} // 詳しい解答を改行付きで表示
+          />
+        );
+      default:
+        return <p>該当するデータがありません。</p>;
+    }
+  };
+
+  return <div>{renderContent()}</div>;
 };
 
 export default ProblemViewer;
