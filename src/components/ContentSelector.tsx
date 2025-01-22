@@ -1,8 +1,10 @@
 import React from "react";
 
 interface ContentSelectorProps {
-  selectedContent: "question" | "hints" | "solution" | "detailedSolution";
-  onContentChange: (content: "question" | "hints" | "solution" | "detailedSolution") => void;
+  selectedContent: "question" | "hints" | "solution" | "detailedSolution"; // 修正: リテラル型を指定
+  onContentChange: (
+    content: "question" | "hints" | "solution" | "detailedSolution"
+  ) => void;
 }
 
 const ContentSelector: React.FC<ContentSelectorProps> = ({
@@ -14,7 +16,7 @@ const ContentSelector: React.FC<ContentSelectorProps> = ({
     { label: "ヒント", value: "hints" },
     { label: "簡単な解答", value: "solution" },
     { label: "詳しい解答", value: "detailedSolution" },
-  ];
+  ] as const;
 
   return (
     <div>

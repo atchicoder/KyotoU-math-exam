@@ -2,15 +2,18 @@ import { useState } from "react";
 import ContentSelector from "./components/ContentSelector";
 import ProblemViewer from "./components/ProblemViewer";
 import { problems } from "./data/problems";
-import { ProblemContent } from "./types"; // 型をインポート
+import { ProblemContent } from "./types";
 
 const App = () => {
   const [selectedYear, setSelectedYear] = useState(2024);
   const [selectedCategory, setSelectedCategory] = useState("文系");
   const [selectedNumber, setSelectedNumber] = useState(1);
-  const [selectedContent, setSelectedContent] = useState("question");
 
-  // 利用可能な年度を問題データから動的に取得
+  // 修正: selectedContent の型をリテラル型に変更
+  const [selectedContent, setSelectedContent] = useState<
+    "question" | "hints" | "solution" | "detailedSolution"
+  >("question");
+
   const availableYears = [
     ...new Set(problems.map((problem) => problem.year)),
   ].sort((a, b) => b - a);
@@ -22,7 +25,9 @@ const App = () => {
       item.number === selectedNumber
   );
 
-  const handleContentChange = (content: string) => {
+  const handleContentChange = (
+    content: "question" | "hints" | "solution" | "detailedSolution"
+  ) => {
     setSelectedContent(content);
   };
 
@@ -71,7 +76,7 @@ const App = () => {
       </div>
 
       <ContentSelector
-        selectedContent={selectedContent}
+        selectedContent={selectedContent} // 修正: 型をリテラル型に統一
         onContentChange={handleContentChange}
       />
 
@@ -80,7 +85,7 @@ const App = () => {
           <ProblemViewer
             key={`${selectedYear}-${selectedCategory}-${selectedNumber}-${selectedContent}`}
             contentType={selectedContent}
-            problemContent={currentProblem.content as ProblemContent} // 型を明示
+            problemContent={currentProblem.content as ProblemContent}
           />
         ) : (
           <p>該当する問題がありません。</p>
