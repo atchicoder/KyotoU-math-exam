@@ -2,6 +2,7 @@ import { useState } from "react";
 import ContentSelector from "./components/ContentSelector";
 import ProblemViewer from "./components/ProblemViewer";
 import { problems } from "./data/problems";
+import { ProblemContent } from "./types"; // 型をインポート
 
 const App = () => {
   const [selectedYear, setSelectedYear] = useState(2024);
@@ -10,7 +11,9 @@ const App = () => {
   const [selectedContent, setSelectedContent] = useState("question");
 
   // 利用可能な年度を問題データから動的に取得
-  const availableYears = [...new Set(problems.map(problem => problem.year))].sort((a, b) => b - a);
+  const availableYears = [
+    ...new Set(problems.map((problem) => problem.year)),
+  ].sort((a, b) => b - a);
 
   const currentProblem = problems.find(
     (item) =>
@@ -77,7 +80,7 @@ const App = () => {
           <ProblemViewer
             key={`${selectedYear}-${selectedCategory}-${selectedNumber}-${selectedContent}`}
             contentType={selectedContent}
-            problemContent={currentProblem.content}
+            problemContent={currentProblem.content as ProblemContent} // 型を明示
           />
         ) : (
           <p>該当する問題がありません。</p>
