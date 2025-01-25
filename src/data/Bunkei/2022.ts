@@ -47,7 +47,6 @@ export const Bunkei2022: Problem[] = [
       "hints": [
         "三角柱の底面と上面の頂点間の移動ルールを確認してください。",
         "\\( a_n \\) と \\( b_n \\) の漸化式を立ててみましょう。",
-        "線形結合 \\( a_n + \\alpha b_n \\) を考え、適切な \\( \\alpha \\) を見つけてください。"
       ],
       "solution": "\\[ a_n = \\frac{1 + 3^n}{2} \\]",
       "detailedSolution": [
