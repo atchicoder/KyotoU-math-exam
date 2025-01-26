@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContentSelector from "./components/ContentSelector";
 import ProblemViewer from "./components/ProblemViewer";
 import { problems } from "./data/problems";
@@ -8,8 +8,6 @@ const App = () => {
   const [selectedYear, setSelectedYear] = useState(2024);
   const [selectedCategory, setSelectedCategory] = useState("文系");
   const [selectedNumber, setSelectedNumber] = useState(1);
-
-  // 修正: selectedContent の型をリテラル型に変更
   const [selectedContent, setSelectedContent] = useState<
     "question" | "hints" | "solution" | "detailedSolution"
   >("question");
@@ -31,13 +29,34 @@ const App = () => {
     setSelectedContent(content);
   };
 
+  // ページタイトルとメタタグを更新する副作用
+  useEffect(() => {
+    // ページタイトルを更新
+    document.title = `京都大学入試数学アプリ - ${selectedYear} ${selectedCategory} 問題 ${selectedNumber}`;
+
+    // メタタグを更新
+    const metaDescription = document.querySelector("meta[name='description']");
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        `京都大学の${selectedYear}年度${selectedCategory}入試問題の解説を体験できる学習アプリです。`
+      );
+    } else {
+      const newMeta = document.createElement("meta");
+      newMeta.name = "description";
+      newMeta.content = `京都大学の${selectedYear}年度${selectedCategory}入試問題の解説を体験できる学習アプリです。`;
+      document.head.appendChild(newMeta);
+    }
+  }, [selectedYear, selectedCategory, selectedNumber]);
+
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1>京都大学入試数学アプリ</h1>
 
       <div style={{ marginBottom: "20px" }}>
-        <label>年度:</label>
+        <label htmlFor="year-select">年度:</label>
         <select
+          id="year-select"
           value={selectedYear}
           onChange={(e) => setSelectedYear(parseInt(e.target.value))}
           style={{ marginRight: "10px" }}
@@ -49,8 +68,9 @@ const App = () => {
           ))}
         </select>
 
-        <label>文系/理系:</label>
+        <label htmlFor="category-select">文系/理系:</label>
         <select
+          id="category-select"
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
           style={{ marginRight: "10px" }}
@@ -62,8 +82,9 @@ const App = () => {
           ))}
         </select>
 
-        <label>問題番号:</label>
+        <label htmlFor="number-select">問題番号:</label>
         <select
+          id="number-select"
           value={selectedNumber}
           onChange={(e) => setSelectedNumber(parseInt(e.target.value))}
         >
@@ -76,7 +97,7 @@ const App = () => {
       </div>
 
       <ContentSelector
-        selectedContent={selectedContent} // 修正: 型をリテラル型に統一
+        selectedContent={selectedContent}
         onContentChange={handleContentChange}
       />
 
@@ -88,7 +109,7 @@ const App = () => {
             problemContent={currentProblem.content as ProblemContent}
           />
         ) : (
-          <p>該当する問題がありません。</p>
+          <p style={{ color: "red" }}>該当する問題が見つかりませんでした。</p>
         )}
       </div>
     </div>
