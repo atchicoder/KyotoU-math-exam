@@ -106,6 +106,29 @@ export const Bunkei2022: Problem[] = [
         "7. 軌跡を求める:\n   \\(M = (X, Y)\\)とおくと\\(X = \\frac{1}{2a}, Y = 2a\\)であり、\\(X \\cdot Y = 1\\)が成り立つ。したがって、\\(M\\)の軌跡は\n   \\[ xy = 1 \\quad (x > 0, y > 0) \\]\n   で表される。"
       ]
     }
+  },
+  {
+    "year": 2022,
+    "number": 5,
+    "category": "文系",
+    "content": {
+        "question": "四面体\\(OABC\\)が\\(OA=4,\\ OB=AB=BC=3,\\ OC=AC=2\\sqrt{3}\\)を満たしているとする。\\(P\\)を辺\\(BC\\)上の点とし、\\(\\triangle OAP\\)の重心を\\(G\\)とする。このとき、次の各問に答えよ。\n(1) \\(\\overrightarrow{PG} \\perp \\overrightarrow{OA}\\)を示せ。\n(2) \\(P\\)が辺\\(BC\\)上を動くとき、\\(PG\\)の最小値を求めよ。",
+        "hints": [
+            "ベクトルの始点を点\\(B\\)にとり、\\(\\vec{b} = \\overrightarrow{BO},\\ \\vec{a} = \\overrightarrow{BA},\\ \\vec{c} = \\overrightarrow{BC}\\)として整理する。",
+            "点\\(P\\)を\\(\\vec{p} = k\\vec{c}\\ (0 \\leq k \\leq 1)\\)とおく。",
+            "三角形\\(\\triangle OAP\\)の重心\\(G\\)を\\(\\overrightarrow{BG} = \\frac{1}{3}(\\overrightarrow{BA} + \\overrightarrow{BP} + \\overrightarrow{BO})\\)で表す。",
+            "ベクトル\\(\\overrightarrow{PG}\\)を\\(\\overrightarrow{BG} - \\overrightarrow{BP}\\)として計算する。",
+            "内積\\(\\overrightarrow{PG} \\cdot \\overrightarrow{OA}\\)を計算し、直交条件を確認する。",
+            "\\(PG = \\frac{1}{3}|\\vec{a} + \\vec{b} - 2k\\vec{c}|\\)の形で表し、最小値を求める。"
+        ],
+        "solution": "点\\(P\\)が辺\\(BC\\)上を動くとき、\\(PG\\)の最小値は\\(\\frac{4}{3}\\)。",
+        "detailedSolution": [
+            "1. ベクトルの設定:\n   点\\(B\\)を基準にベクトル\\(\\vec{b} = \\overrightarrow{BO},\\ \\vec{a} = \\overrightarrow{BA},\\ \\vec{c} = \\overrightarrow{BC}\\)を設定し、\n   \n   \\[ |\\vec{b}| = |\\vec{a}| = |\\vec{c}| = 3,\\ \\vec{a} \\cdot \\vec{b} = 1,\\ \\vec{b} \\cdot \\vec{c} = 3,\\ \\vec{a} \\cdot \\vec{c} = 3 \\]\n   を計算する。",
+            "2. 点\\(P\\)と重心\\(G\\)の表現:\n   点\\(P\\)を\\(\\vec{p} = k\\vec{c}\\ (0 \\leq k \\leq 1)\\)とおく。すると\n   \\[ \\overrightarrow{BP} = k\\vec{c}, \\quad \\overrightarrow{BO} = \\vec{b}, \\quad \\overrightarrow{BA} = \\vec{a}. \\]\n   三角形\\(\\triangle OAP\\)の重心\\(G\\)は\n   \\[ \\overrightarrow{BG} = \\frac{1}{3}(\\overrightarrow{BO} + \\overrightarrow{BA} + \\overrightarrow{BP}) \\]\n   より\n   \\[ \\overrightarrow{BG} = \\frac{1}{3}(\\vec{b} + \\vec{a} + k\\vec{c}). \\]\n   よって\n   \\[ \\overrightarrow{PG} = \\overrightarrow{BG} - \\overrightarrow{BP} = \\frac{1}{3}(\\vec{b} + \\vec{a} + k\\vec{c}) - k\\vec{c} = \\frac{1}{3}(\\vec{b} + \\vec{a} - 2k\\vec{c}). \\]",
+            "3. (1) \\(\\overrightarrow{PG} \\perp \\overrightarrow{OA}\\)を示す:\n   \\(\\overrightarrow{OA} = \\vec{a} - \\vec{b}\\)を用いて、内積\n   \\[ \\overrightarrow{PG} \\cdot \\overrightarrow{OA} = \\frac{1}{3}((\\vec{a} + \\vec{b} - 2k\\vec{c}) \\cdot (\\vec{a} - \\vec{b})). \\]\n   各項を展開すると、\\((\\vec{a} + \\vec{b}) \\cdot (\\vec{a} - \\vec{b}) = |\\vec{a}|^2 - |\\vec{b}|^2 = 9 - 9 = 0\\) となり、\\(-2k\\vec{c} \\cdot (\\vec{a} - \\vec{b})\\) も計算して 0 となる。したがって内積全体が 0 となり、\\(\\overrightarrow{PG} \\perp \\overrightarrow{OA}\\) が示される。",
+            "4. (2) \\(PG\\)の最小値を求める:\n   \\(PG = \\frac{1}{3}|\\vec{a} + \\vec{b} - 2k\\vec{c}|\\)より、\n   二次関数\\(F(k) = |\\vec{a} + \\vec{b} - 2k\\vec{c}|^2\\)を展開して\n   \\[ F(k) = 36k^2 - 24k + 20 \\]\n   とする。\n   頂点\\(k = \\frac{1}{3}\\)で最小値\\(F(\\frac{1}{3}) = 16\\)をとるので、\n   \\(PG = \\frac{1}{3}\\sqrt{16} = \\frac{4}{3}\\)。"
+        ]
+    }
   }
 ];
 
