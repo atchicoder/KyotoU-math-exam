@@ -68,6 +68,38 @@ export const Bunkei2020: Problem[] = [
         "  \\[ a \\equiv 3 \\pmod{4}. \\]"
       ]
     }
+  },
+  {
+    "year": 2020,
+    "number": 4,
+    "category": "文系",
+    "content": {
+      "question": "正の実数 \\( k \\) に対して、座標空間において、原点 \\( O \\) を中心とする半径 1 の球面上の 4 点 \\( A, B, C, D \\) が次の関係式を満たしている。\n\n\\[ \\overrightarrow{OA} \\cdot \\overrightarrow{OB} = \\overrightarrow{OC} \\cdot \\overrightarrow{OD} = \\frac{1}{2}, \\]\n\\[ \\overrightarrow{OA} \\cdot \\overrightarrow{OC} = \\overrightarrow{OB} \\cdot \\overrightarrow{OC} = -\\frac{\\sqrt{6}}{4}, \\]\n\\[ \\overrightarrow{OA} \\cdot \\overrightarrow{OD} = \\overrightarrow{OB} \\cdot \\overrightarrow{OD} = k. \\]\n\nこのとき、\\( k \\) の値を求めよ。",
+      "hints": [
+        "1. 点 \\( A, B, C \\) を適切に設定し、内積の関係から座標を求める。",
+        "2. 点 \\( C \\) の成分を内積条件から決定する。",
+        "3. 点 \\( D \\) の成分を \\( k \\) を用いて表し、単位ベクトル条件から \\( k \\) を求める。"
+      ],
+      "solution": "求める \\( k \\) の値は \\( \\frac{3\\sqrt{2} - \\sqrt{6}}{8} \\) である。",
+      "detailedSolution": [
+        "### 1. 点 \\( A, B, C \\) の座標の設定",
+        "半径 1 の球面上の点として、まず \\( A = (1, 0, 0) \\)、\\( B = (\\frac{1}{2}, \\frac{\\sqrt{3}}{2}, 0) \\) とおく。",
+        "点 \\( C = (x, y, z) \\) に対し、内積条件 \\( \\overrightarrow{OA} \\cdot \\overrightarrow{OC} = -\\frac{\\sqrt{6}}{4} \\) より、\\( x = -\\frac{\\sqrt{6}}{4} \\) が得られる。",
+        "また、\\( \\overrightarrow{OB} \\cdot \\overrightarrow{OC} = -\\frac{\\sqrt{6}}{4} \\) より、 \\( \\frac{1}{2}x + \\frac{\\sqrt{3}}{2}y = -\\frac{\\sqrt{6}}{4} \\) を解くことで、\\( y = -\\frac{\\sqrt{2}}{4} \\) が得られる。",
+        "球面上の点なので、\\( x^2 + y^2 + z^2 = 1 \\) を用いて、\\( z = \\frac{1}{\\sqrt{2}} \\) を求める。",
+        "したがって、 \\( C = \\left(-\\frac{\\sqrt{6}}{4}, -\\frac{\\sqrt{2}}{4}, \\frac{1}{\\sqrt{2}}\\right) \\) となる。",
+        "",
+        "### 2. 点 \\( D \\) の座標の設定と \\( k \\) の求解",
+        "点 \\( D = (u, v, w) \\) とおき、内積条件 \\( \\overrightarrow{OA} \\cdot \\overrightarrow{OD} = k \\) より、\\( u = k \\) である。",
+        "また、 \\( \\overrightarrow{OB} \\cdot \\overrightarrow{OD} = k \\) より、\\( \\frac{1}{2}u + \\frac{\\sqrt{3}}{2}v = k \\) を解いて \\( v = \\frac{k}{\\sqrt{3}} \\) を得る。",
+        "さらに、 \\( \\overrightarrow{OC} \\cdot \\overrightarrow{OD} = \\frac{1}{2} \\) より、\n\\[ -\\frac{\\sqrt{6}}{4}u - \\frac{\\sqrt{2}}{4}v + \\frac{1}{\\sqrt{2}}w = \\frac{1}{2} \\]\nに \\( u = k, v = \\frac{k}{\\sqrt{3}} \\) を代入して整理すると、\n\\[ w = \\sqrt{2} \\left( \\frac{1}{2} + \\frac{k\\sqrt{6}}{3} \\right). \\]",
+        "単位ベクトル条件 \\( u^2 + v^2 + w^2 = 1 \\) を用いて二次方程式を導き、解を求める。",
+        "この方程式を解くことで、 \\( k = \\frac{\\pm3\\sqrt{2} - \\sqrt{6}}{8} \\) を得る。\\(k>0\\)より、\\( k = \\frac{3\\sqrt{2} - \\sqrt{6}}{8} \\)。",
+        "",
+        "### 3. 結論",
+        "したがって、求める \\( k \\) の値は\n\\[ \\boxed{\\frac{3\\sqrt{2} - \\sqrt{6}}{8}}. \\]"
+      ]
+    }
   }
 ];
 
