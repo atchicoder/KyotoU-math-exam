@@ -8,7 +8,7 @@ export const Rikei2024: Problem[] = [
     "content": {
       "question": "異なる \\( n \\) 色を用意し、立方体の各面にいずれかの色を塗る。各面にどの色を塗るかは同様に確からしいとする。辺を共有するどの二つの面にも異なる色が塗られる確率を \\( p_n \\) とする。\n\n(1) \\( p_4 \\) を求めよ。\n(2) \\( \\displaystyle\\lim_{n\\to\\infty} p_n \\) を求めよ。",
       "hints": [
-        "1. 立方体の面をどのように塗るかをすべて数え、そのうち辺を共有する面が異なる色になる場合を求める。",
+        "1. 立方体の面をどのように塗るかをすべて数え、そのうち辺を共有する面が異なる色になる場合を求める。"
       ],
       "solution":
         "(1) \\( p_4 = \\frac{3}{128} \\) \n   (2) \\( \\displaystyle\\lim_{n\\to\\infty} p_n = 1 \\)"
@@ -84,6 +84,62 @@ export const Rikei2024: Problem[] = [
             "### 4. 結論",
             "複素数 \\( z \\) の動く領域は、点 \\( (4,3) \\) を中心とする内半径 \\( \\frac{1}{2} \\) 、外半径 \\( \\frac{5}{2} \\) の同心円状の領域（ドーナツ状の領域、境界線を含む）であり、その面積は\n\\[6\\pi\\]\nである。"
         ]
+    }
+  },
+  {
+    year: 2024,
+    number: 3,
+    category: "理系",
+    content: {
+      question: "座標空間の4点 \\( O \\), \\( A \\), \\( B \\), \\( C \\) は同一平面上にないとする。線分 \\( OA \\) の中点を \\( P \\), 線分 \\( AB \\) の中点を \\( Q \\) とする。実数 \\( x \\), \\( y \\) に対して、直線 \\( OC \\) 上の点 \\( X \\) と、直線 \\( BC \\) 上の点 \\( Y \\) を次のように定める。\n\n\\[ \\overrightarrow{OX}=x\\overrightarrow{OC},  \\overrightarrow{BY}=y\\overrightarrow{BC} \\]\n\nこのとき，直線 \\( QY \\) と直線 \\( PX \\) がねじれの位置にあるための \\( x, \\, y \\) に関する必要十分条件を求めよ。",
+      hints: [
+        "1. 各点の位置ベクトルを定義し、\\( P \\), \\( Q \\), \\( X \\), \\( Y \\) の位置ベクトルを求める。",
+        "2. 直線 \\( PX \\) と \\( QY \\) の方向ベクトルを計算し、平行または交わる条件を調べる。",
+        "3. ねじれ線の条件として、平行でも交わってもいないことを確認し、\\( x, y \\) に関する条件を導く。"
+      ],
+      solution: "直線 \\( QY \\) と直線 \\( PX \\) がねじれ線となるための必要十分条件は \\( x \\neq y \\) である。",
+      detailedSolution: [
+        "### 1. 各点の位置ベクトル",
+        "点 \\( P \\) と \\( Q \\) の位置ベクトルは、それぞれ",
+        "\\[ \\overrightarrow{OP} = \\frac{1}{2} \\overrightarrow{OA}, \\quad \\overrightarrow{OQ} = \\frac{1}{2} \\big( \\overrightarrow{OA} + \\overrightarrow{OB} \\big). \\]",
+        "また、\\( X \\) と \\( Y \\) の位置ベクトルは",
+        "\\[ \\overrightarrow{OX} = x \\overrightarrow{OC}, \\quad \\overrightarrow{OY} = (1 - y) \\overrightarrow{OB} + y \\overrightarrow{OC}. \\]",
+        "",
+        "### 2. 直線の方向ベクトル",
+        "直線 \\( PX \\) の方向ベクトルは",
+        "\\[ \\overrightarrow{PX} = \\overrightarrow{OX} - \\overrightarrow{OP} = x \\overrightarrow{OC} - \\frac{1}{2} \\overrightarrow{OA}. \\]",
+        "直線 \\( QY \\) の方向ベクトルは",
+        "\\[ \\overrightarrow{QY} = \\overrightarrow{OY} - \\overrightarrow{OQ} = -\\frac{1}{2} \\overrightarrow{OA} + \\bigg( \\frac{1}{2} - y \\bigg) \\overrightarrow{OB} + y \\overrightarrow{OC}. \\]",
+        "",
+        "### 3. 直線が平行になる条件",
+        "直線が平行であるためには、方向ベクトルが定数倍の関係になる必要がある。",
+        "\\[ x \\overrightarrow{OC} - \\frac{1}{2} \\overrightarrow{OA} = \\lambda \\bigg( -\\frac{1}{2} \\overrightarrow{OA} + \\bigg( \\frac{1}{2} - y \\bigg) \\overrightarrow{OB} + y \\overrightarrow{OC} \\bigg). \\]",
+        "ここで \\( \\overrightarrow{OB} \\) の係数が 0 になるには \\( y = \\frac{1}{2} \\) である必要がある。",
+        "さらにこのとき \\( x = \\frac{1}{2} \\) ならば、直線は平行になる。",
+        "",
+        "### 4. 直線が交わる条件",
+        "直線が交わるためには、ある実数 \\( s \\), \\( t \\) が存在して、",
+        "\\[ \\overrightarrow{OP} + s \\overrightarrow{PX} = \\overrightarrow{OQ} + t \\overrightarrow{QY} \\]",
+        "が成り立つ必要がある。",
+        "まず、\\( \\overrightarrow{OA} \\) の係数を比較すると、",
+        "\\[ \\frac{1 - s}{2} = \\frac{1}{2} - \\frac{t}{2}. \\]",
+        "これを整理すると、",
+        "\\[ s = t. \\]",
+        "次に、\\( \\overrightarrow{OB} \\) の係数を比較すると、",
+        "\\[ 0 = \\frac{1}{2} + t \\bigg( \\frac{1}{2} - y \\bigg). \\]",
+        "ここで \\( y \\neq \\frac{1}{2} \\) ならば、",
+        "\\[ t = \\frac{-\\frac{1}{2}}{\\frac{1}{2} - y} = \\frac{-1}{1 - 2y}. \\]",
+        "さらに、\\( \\overrightarrow{OC} \\) の係数を比較すると、",
+        "\\[ s x = t y. \\]",
+        "これに \\( s = t \\) を代入すると、",
+        "\\[ x = y. \\]",
+        "したがって、\\( y \\neq \\frac{1}{2} \\) のとき、\\( x = y \\) ならば直線は交わる。",
+        "",
+        "### 5. ねじれ線の条件",
+        "ねじれ線となるためには、直線が交わらず、かつ平行でない必要がある。",
+        "そのための必要十分条件は、",
+        "\\[ x \\neq y. \\]"
+      ]
     }
   }
 ];
