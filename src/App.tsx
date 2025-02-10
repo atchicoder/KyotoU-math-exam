@@ -16,6 +16,14 @@ const App = () => {
     ...new Set(problems.map((problem) => problem.year)),
   ].sort((a, b) => b - a);
 
+  // 現在の選択した年度・カテゴリに存在する問題番号
+  const availableNumbers = problems
+    .filter(
+      (problem) =>
+        problem.year === selectedYear && problem.category === selectedCategory
+    )
+    .map((problem) => problem.number);
+
   const currentProblem = problems.find(
     (item) =>
       item.year === selectedYear &&
@@ -29,12 +37,8 @@ const App = () => {
     setSelectedContent(content);
   };
 
-  // ページタイトルとメタタグを更新する副作用
   useEffect(() => {
-    // ページタイトルを更新
     document.title = `京都大学入試数学アプリ - ${selectedYear} ${selectedCategory} 問題 ${selectedNumber}`;
-
-    // メタタグを更新
     const metaDescription = document.querySelector("meta[name='description']");
     if (metaDescription) {
       metaDescription.setAttribute(
@@ -89,7 +93,15 @@ const App = () => {
           onChange={(e) => setSelectedNumber(parseInt(e.target.value))}
         >
           {[1, 2, 3, 4, 5, 6].map((number) => (
-            <option key={number} value={number}>
+            <option
+              key={number}
+              value={number}
+              style={{
+                color: availableNumbers.includes(number) ? "black" : "#ccc",
+                fontWeight: availableNumbers.includes(number) ? "bold" : "normal",
+              }}
+              disabled={!availableNumbers.includes(number)} // 存在しない問題は選択不可
+            >
               {number}
             </option>
           ))}
