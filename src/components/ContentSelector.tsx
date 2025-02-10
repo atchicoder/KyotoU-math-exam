@@ -5,13 +5,11 @@ interface ContentSelectorProps {
   onContentChange: (
     content: "question" | "hints" | "solution" | "detailedSolution"
   ) => void;
-  currentProblem: { content: Record<string, string> } | undefined;
 }
 
 const ContentSelector: React.FC<ContentSelectorProps> = ({
   selectedContent,
   onContentChange,
-  currentProblem,
 }) => {
   const options = [
     { label: "問題", value: "question" },
@@ -30,14 +28,9 @@ const ContentSelector: React.FC<ContentSelectorProps> = ({
             margin: "0 5px",
             padding: "10px",
             backgroundColor:
-              selectedContent === option.value
-                ? "#add8e6" // 選択中のボタンは青
-                : currentProblem?.content?.[option.value]
-                ? "#d3ffd3" // データがある場合は緑
-                : "#f0f0f0", // データがない場合はグレー
+              selectedContent === option.value ? "#add8e6" : "#f0f0f0",
             border: "1px solid #ccc",
-            cursor: currentProblem?.content?.[option.value] ? "pointer" : "not-allowed", // データがない場合は無効風
-            opacity: currentProblem?.content?.[option.value] ? 1 : 0.5, // データがない場合は薄くする
+            cursor: "pointer",
           }}
         >
           {option.label}
