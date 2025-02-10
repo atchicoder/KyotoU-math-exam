@@ -87,36 +87,18 @@ const App = () => {
           id="number-select"
           value={selectedNumber}
           onChange={(e) => setSelectedNumber(parseInt(e.target.value))}
->
-          {[1, 2, 3, 4, 5, 6].map((number) => {
-          const problemExists = problems.some(
-          (item) =>
-              item.year === selectedYear &&
-              item.category === selectedCategory &&
-              item.number === number
-          );
-
-          return (
-            <option
-            key={number}
-            value={number}
-            style={{
-              backgroundColor: problemExists ? "#d3ffd3" : "#f0f0f0", // データありは緑, なしはグレー
-              color: problemExists ? "black" : "gray", // データなしはグレー文字
-              fontWeight: problemExists ? "bold" : "normal", // データありは太字
-            }}
-            >
-            {number}
+        >
+          {[1, 2, 3, 4, 5, 6].map((number) => (
+            <option key={number} value={number}>
+              {number}
             </option>
-            );
-          })}
+          ))}
         </select>
       </div>
 
       <ContentSelector
         selectedContent={selectedContent}
         onContentChange={handleContentChange}
-        currentProblem={currentProblem}
       />
 
       <div style={{ marginTop: "20px" }}>
