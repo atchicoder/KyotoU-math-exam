@@ -21,7 +21,7 @@ const App = () => {
       item.year === selectedYear &&
       item.category === selectedCategory &&
       item.number === selectedNumber
-  );
+  ) as Problem | undefined; // 型を明示的に指定
 
   const handleContentChange = (
     content: "question" | "hints" | "solution" | "detailedSolution"
