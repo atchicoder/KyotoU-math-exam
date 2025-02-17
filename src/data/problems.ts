@@ -6,8 +6,9 @@ import { Bunkei2024 } from "./Bunkei/2024";
 import { Rikei2024 } from "./Rikei/2024";
 import { Rikei2003 } from "./Rikei/2003";
 import { Rikei2023 } from "./Rikei/2023";
+import { Rikei2022 } from "./Rikei/2022";
 // 理系データも同様にインポート
 // import { 理系2023 } from "./理系/2023";
 // import { 理系2024 } from "./理系/2024";
 
-export const problems = [...Bunkei2023, ...Bunkei2024, ...Bunkei2022, ...Bunkei2021, ...Bunkei2020, ...Rikei2024, ...Rikei2003, ...Rikei2023];
+export const problems = [...Bunkei2023, ...Bunkei2024, ...Bunkei2022, ...Bunkei2021, ...Bunkei2020, ...Rikei2024, ...Rikei2003, ...Rikei2023, ...Rikei2022];
