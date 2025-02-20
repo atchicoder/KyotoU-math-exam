@@ -137,6 +137,37 @@ export const Rikei2022: Problem[] = [
         "\\[ A_n = \\begin{cases} 2 & (n = 6k) \\\\ 3 & (n = 6k+1) \\\\ 6 & (n = 6k+2) \\\\ 1 & (n = 6k+3) \\\\ 6 & (n = 6k+4) \\\\ 3 & (n = 6k+5) \\end{cases} \\]"
       ]
     }
+  },
+  {
+    "year": 2022,
+    "number": 4,
+    "category": "理系",
+    "content": {
+      "question": "四面体 \\(OABC\\) が\n\\[ OA = 4, \\quad OB = AB = BC = 3, \\quad OC = AC = 2\\sqrt{3} \\]\nを満たしているとする。\\(P\\) を辺 \\(BC\\) 上の点とし、\\(\\triangle OAP\\) の重心を \\(G\\) とする。このとき、次の各問に答えよ。\n\n(1) \\(\\overrightarrow{PG} \\perp \\overrightarrow{OA}\\) を示せ。\n(2) \\(P\\) が辺 \\(BC\\) 上を動くとき、\\(PG\\) の最小値を求めよ。",
+      "hints": [
+        "1. ベクトルの内積の性質を用いて、\\(\\overrightarrow{PG}\\) と \\(\\overrightarrow{OA}\\) の直交性を示す。",
+        "2. 辺 \\(BC\\) 上の任意の点 \\(P\\) をパラメータ \\(t\\) を使って表現し、重心の公式を利用する。",
+        "3. \\(PG\\) の長さを \\(t\\) の関数として求め、二次関数の頂点から最小値を算出する。"
+      ],
+      "solution": "（1）\\(\\overrightarrow{PG} \\perp \\overrightarrow{OA}\\) であることを示し、（2）\\(PG\\) の最小値は \\(\\frac{4}{3}\\) である。",
+      "detailedSolution": [
+        "【(1) ベクトルによる解法】",
+        "1. 各点の位置ベクトルを \\(\\overrightarrow{OA}\\), \\(\\overrightarrow{OB}\\), \\(\\overrightarrow{OC}\\) とする。与えられた条件から、\n\\[ \\left|\\overrightarrow{OA}\\right| = 4, \\quad \\left|\\overrightarrow{OB}\\right| = 3, \\quad \\left|\\overrightarrow{OC}\\right| = 2\\sqrt{3} \\]\nであり、また\n\\[ \\left|\\overrightarrow{OA} - \\overrightarrow{OB}\\right| = 3, \\quad \\left|\\overrightarrow{OA} - \\overrightarrow{OC}\\right| = 2\\sqrt{3}, \\quad \\left|\\overrightarrow{OC} - \\overrightarrow{OB}\\right| = 3 \\] \nが成り立つ。",
+        "2. 余弦定理より、\n\\[ \\overrightarrow{OA} \\cdot \\overrightarrow{OB} = 8, \\quad \\overrightarrow{OA} \\cdot \\overrightarrow{OC} = 8 \\] \nが得られる。",
+        "3. 辺 \\(BC\\) 上の任意の点 \\(P\\) は、\n\\[ \\overrightarrow{OP} = \\overrightarrow{OB} + t(\\overrightarrow{OC} - \\overrightarrow{OB}) \\quad (0 \\le t \\le 1) \\] \nと表される。",
+        "4. 三角形 \\(OAP\\) の重心 \\(G\\) の位置ベクトルは\n\\[ \\overrightarrow{OG} = \\frac{1}{3}(\\overrightarrow{OA} + \\overrightarrow{OP}). \\]",
+        "5. よって、\\(P\\) から \\(G\\) へのベクトルは\n\\[ \\overrightarrow{PG} = \\overrightarrow{OG} - \\overrightarrow{OP} = \\frac{1}{3}\\overrightarrow{OA} - \\frac{2}{3}\\overrightarrow{OP}. \\]",
+        "6. \\(\\overrightarrow{OA}\\) との内積を計算すると、\n\\[ \\overrightarrow{PG} \\cdot \\overrightarrow{OA} = \\left(\\frac{1}{3}\\overrightarrow{OA} - \\frac{2}{3}\\overrightarrow{OP}\\right) \\cdot \\overrightarrow{OA}. \\]",
+        "7. ここで、\n\\[ \\overrightarrow{OA} \\cdot \\overrightarrow{OP} = \\overrightarrow{OA} \\cdot \\overrightarrow{OB} + t(\\overrightarrow{OA} \\cdot \\overrightarrow{OC} - \\overrightarrow{OA} \\cdot \\overrightarrow{OB}) = 8. \\]\nしたがって、\n\\[ \\overrightarrow{PG} \\cdot \\overrightarrow{OA} = \\frac{16}{3} - \\frac{16}{3} = 0. \\]",
+        "8. よって、\\(\\overrightarrow{PG} \\perp \\overrightarrow{OA}\\) である。",
+        "",
+        "【(2) ベクトルを用いた解法】",
+        "1. \\(\\overrightarrow{PG}\\) の長さを求めるため、\\(\\overrightarrow{PG} = \\frac{1}{3} \\overrightarrow{OA} - \\frac{2}{3} \\overrightarrow{OP}\\) の大きさを計算する。",
+        "2. \\(\\overrightarrow{PG}\\) の大きさは、\n\\[ \\left|\\overrightarrow{PG}\\right|^2 = \\left|\\frac{1}{3} \\overrightarrow{OA} - \\frac{2}{3} \\overrightarrow{OP}\\right|^2. \\]\nこれを展開して整理すると、\n\\[ \\left|\\overrightarrow{PG}\\right|^2 = \\frac{4}{9} (9t^2 - 6t + 5). \\]",
+        "3. 二次関数 \\(9t^2 - 6t + 5\\) の最小値を求めると、\\(t = \\frac{1}{3}\\) で最小値 4 となる。",
+        "4. したがって、\n\\[ \\left|\\overrightarrow{PG}\\right|_{\\min}^2 = \\frac{16}{9}, \\quad \\left|\\overrightarrow{PG}\\right|_{\\min} = \\frac{4}{3}. \\]"
+      ]
+    }
   }
 ];
 
