@@ -168,6 +168,41 @@ export const Rikei2022: Problem[] = [
         "4. したがって、\n\\[ \\left|\\overrightarrow{PG}\\right|_{\\min}^2 = \\frac{16}{9}, \\quad \\left|\\overrightarrow{PG}\\right|_{\\min} = \\frac{4}{3}. \\]"
       ]
     }
+  },
+  {
+    "year": 2022,
+    "number": 5,
+    "category": "理系",
+    "content": {
+        "question": "曲線 \\( C:y=\cos^3x \\) \\(\\displaystyle\\left( 0 \\leqq x \\leqq \\frac{\\pi}{2} \\right)\\)、 \\(x\\) 軸および \\(y\\) 軸で囲まれる図形の面積を \\(S\\) とする。\n\n \\(\\displaystyle 0 < t < \\frac{\\pi}{2}\\) とし、\n \\( C \\) 上の点 \\( Q(t, \\cos^3t) \\) と原点 \\( O \\)、および \\( P(t, 0) \\)、\\( R(0, \\cos^3t) \\) を頂点にもつ長方形 \\( OPQR \\) の面積を \\( f(t) \\) とする。\n\nこのとき、次の各問に答えよ。\n\n1. \\( S \\) を求めよ。\n\n2. \\( f(t) \\) は最大値をただ 1 つの \\( t \\) でとることを示せ。そのときの \\( t \\) を \\( \\alpha \\) とすると、 \\(\\displaystyle f(\\alpha)=\\frac{\\cos^4\\alpha}{3\\sin\\alpha}\\) であることを示せ。\n\n3. \\(\\displaystyle \\frac{f(\\alpha)}{S}<\\frac{9}{16}\\) を示せ。",
+        
+        "hints": [
+            "1. \\( S \\) は積分 \\( \\int_0^{\\pi/2} \\cos^3 x \\,dx \\) で求める。",
+            "2. \\( f(t) = t \\cos^3 t \\) の導関数 \\( f'(t) \\) を求め、その符号変化を調べる。",
+            "3. \\( \\varphi(t) = \\cos t - 3t \\sin t \\) を考え、その単調性を示す。",
+            "4. \\( \\frac{f(\\alpha)}{S} \\) の評価には \\( \\alpha \\) の範囲を \\( \\frac{\\pi}{6} < \\alpha < \\frac{\\pi}{4} \\) で挟む。",
+            "5. \\( \\cos^4 \\alpha < \\frac{9}{16} \\) と \\( 2 \\sin \\alpha > 1 \\) を用いる。"
+        ],
+
+        "solution": "求める解答は次の通り。\n1. \\( S = \\frac{2}{3} \\)。",
+
+        "detailedSolution": [
+            "### 1. \\( S \\) の計算",
+            "求める面積は、\n\\[ S = \\int_0^{\\pi/2} \\cos^3 x \\,dx. \\]\nこれを計算するため、置換 \\( u = \\sin x \\) を導入すると、\\( du = \\cos x \\,dx \\) である。",
+            "また、\\( \\cos^3 x = (1 - u^2) \\cos x \\) なので、\n\\[ S = \\int_0^1 (1 - u^2) \\, du. \\]",
+            "この積分を計算すると、\n\\[ S = \\left[ u - \\frac{u^3}{3} \\right]_0^1 = \\left( 1 - \\frac{1}{3} \\right) - (0 - 0) = \\frac{2}{3}. \\]",
+
+            "### 2. \\( f(t) \\) の最大値の存在とその表現",
+            "長方形の面積は \\( f(t) = t \\cos^3 t \\) であり、導関数は\n\\[ f'(t) = \\cos^3 t - 3t \\cos^2 t \\sin t. \\]\nこれを \\( \\cos^2 t \\) で因数分解すると、\n\\[ f'(t) = \\cos^2 t (\\cos t - 3t \\sin t). \\]",
+            "ここで \\( \\varphi(t) = \\cos t - 3t \\sin t \\) を考えると、その導関数は\n\\[ \\varphi'(t) = -4 \\sin t - 3t \\cos t < 0. \\]\nしたがって、\\( \\varphi(t) \\) は単調減少である。\nまた、\n\\[ \\varphi(0) = 1 > 0, \\quad \\varphi(\\pi/2) = -\\frac{3\\pi}{2} < 0. \\]\nよって、\\( \\varphi(t) = 0 \\) となる \\( \\alpha \\) がただ 1 つ存在し、\\( f(t) \\) は \\( t=\\alpha \\) で最大値をとる。",
+            "最大値の条件 \\( 3 \\alpha \\sin \\alpha = \\cos \\alpha \\) より、\n\\[ f(\\alpha) = \\frac{\\cos^4 \\alpha}{3 \\sin \\alpha}. \\]",
+
+            "### 3. \\( \\frac{f(\\alpha)}{S} < \\frac{9}{16} \\) の証明",
+            "面積比は\n\\[ \\frac{f(\\alpha)}{S} = \\frac{\\cos^4 \\alpha}{2 \\sin \\alpha}. \\]\n\\( \\alpha \\) の範囲を評価するため、 \\( f'(t) \\) の符号変化を見ると、\n\\[ f'\\left( \\frac{\\pi}{6} \\right) > 0, \\quad f'\\left( \\frac{\\pi}{4} \\right) < 0. \\]\nよって、\n\\[ \\frac{\\pi}{6} < \\alpha < \\frac{\\pi}{4}. \\]",
+            "この範囲において、\n\\[ \\cos^4 \\alpha < \\left( \\frac{\\sqrt{3}}{2} \\right)^4 = \\frac{9}{16}, \\quad 2 \\sin \\alpha > 1. \\]\nしたがって、\n\\[ \\frac{f(\\alpha)}{S} = \\frac{\\cos^4 \\alpha}{2 \\sin \\alpha} < \\frac{9}{16}. \\]",
+            "これで不等式が示された。"
+        ]
+    }
   }
 ];
 
