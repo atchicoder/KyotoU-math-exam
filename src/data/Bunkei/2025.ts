@@ -185,6 +185,50 @@ export const Bunkei2025: Problem[] = [
         "よって、求める面積は \\( \\frac{9}{2} \\) である。"
       ]
     }
+  },
+  {
+    "year": 2025,
+    "number": 5,
+    "category": "文系",
+    "content": {
+        "question": "座標空間の4点 \\(O, A, B, C\\) は同一平面上にないとする。\\(s, t, u\\) は0でない実数とする。\n\n直線 \\(OA\\) 上の点 \\(L\\)，直線 \\(OB\\) 上の点 \\(M\\)，直線 \\(OC\\) 上の点 \\(N\\) を\n\\[\n\\overrightarrow{OL} = s \\overrightarrow{OA}, \\quad\n\\overrightarrow{OM} = t \\overrightarrow{OB}, \\quad\n\\overrightarrow{ON} = u \\overrightarrow{OC}\n\\]\nが成り立つようにとる。\n\n\\(s, t, u\\) が\n\\[ \\frac{1}{s} + \\frac{2}{t} + \\frac{3}{u} = 4 \\]\nを満たす範囲であらゆる値をとるとき、3点 \\(L, M, N\\) の定める平面 \\(LMN\\) は、\\(s, t, u\\) の値に無関係な一定の点を通ることを示せ。",
+        "hints": [
+            "1. \\(L, M, N\\) の位置ベクトルを明確に書き出す。",
+            "2. 与えられた条件式を利用して、一定の点の候補を考える。",
+            "3. 平面上の点を表す一般的な表現（線形結合の形）を使い、求めた点が常に平面 \\(LMN\\) 上にあることを示す。"
+        ],
+        "solution": "平面 \\(LMN\\) は、\\(s, t, u\\) の値に関係なく、点 \\(P\\) を常に通る。点 \\(P\\) の位置ベクトルは\n\\[ \\overrightarrow{OP} = \\frac{1}{4} (\\overrightarrow{OA} + 2\\overrightarrow{OB} + 3\\overrightarrow{OC}) \\]\nで与えられる。",
+        "detailedSolution": [
+            "### 1. 位置ベクトルの定義",
+            "点 \\(O\\) を基準にして、各点の位置ベクトルを次のようにおく：",
+            "\\[ \\overrightarrow{OA} = \\vec{a}, \\quad \\overrightarrow{OB} = \\vec{b}, \\quad \\overrightarrow{OC} = \\vec{c}. \\]",
+            "また、点 \\(L, M, N\\) の位置ベクトルは、それぞれ",
+            "\\[ \\overrightarrow{OL} = s \\vec{a}, \\quad \\overrightarrow{OM} = t \\vec{b}, \\quad \\overrightarrow{ON} = u \\vec{c} \\]",
+            "と表される。",
+            "",
+            "### 2. 一定点の候補を考える",
+            "問題の条件から、\\(s, t, u\\) は次の関係を満たす：",
+            "\\[ \\frac{1}{s} + \\frac{2}{t} + \\frac{3}{u} = 4. \\]",
+            "この式を変形すると、",
+            "\\[ \\frac{1}{4} \\left( \\frac{1}{s} + \\frac{2}{t} + \\frac{3}{u} \\right) = 1 \\]",
+            "が成り立つ。したがって、以下の点 \\(P\\) を考える：",
+            "\\[ \\overrightarrow{OP} = \\frac{1}{4} (\\vec{a} + 2\\vec{b} + 3\\vec{c}). \\]",
+            "",
+            "### 3. \\(P\\) が常に平面 \\(LMN\\) 上にあることの確認",
+            "平面 \\(LMN\\) の上の任意の点は、次のような形で表せる：",
+            "\\[ \\overrightarrow{OX} = \\alpha \\overrightarrow{OL} + \\beta \\overrightarrow{OM} + \\gamma \\overrightarrow{ON}, \\quad \\text{ただし} \\quad \\alpha + \\beta + \\gamma = 1. \\]",
+            "これに基づき、点 \\(P\\) の位置ベクトルを比較すると、適切な \\(\\alpha, \\beta, \\gamma\\) を選ぶことで、",
+            "\\[ \\overrightarrow{OP} = \\frac{1}{4s} (s \\vec{a}) + \\frac{1}{2t} (t \\vec{b}) + \\frac{3}{4u} (u \\vec{c}) \\]",
+            "と書ける。このとき、係数の和は",
+            "\\[ \\frac{1}{4s} + \\frac{1}{2t} + \\frac{3}{4u} = \\frac{1}{4} \\left( \\frac{1}{s} + \\frac{2}{t} + \\frac{3}{u} \\right) = 1 \\]",
+            "となるので、\\(P\\) は平面 \\(LMN\\) 上にある。",
+            "",
+            "### 4. 結論",
+            "任意の \\(s, t, u\\) に対して、平面 \\(LMN\\) は常に点 \\(P\\) を通ることが示された。よって、求める一定の点は",
+            "\\[ \\overrightarrow{OP} = \\frac{1}{4} (\\overrightarrow{OA} + 2\\overrightarrow{OB} + 3\\overrightarrow{OC}) \\]",
+            "である。"
+        ]
+    }
   }
 ];
 
