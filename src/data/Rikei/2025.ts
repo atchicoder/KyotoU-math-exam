@@ -3,6 +3,18 @@ import { Problem } from "../../types";
 export const Rikei2025: Problem[] = [
   {
     "year": 2025,
+    "number": 1,
+    "category": "理系",
+    "content": {
+      "question": "（1）\\(i\\) は虚数単位とする。複素数 \\(z\\) が、絶対値が 2 である複素数全体を動くとき、\\(\\displaystyle \\left| z-\\frac{i}{z} \\right|\\) の最大値と最小値を求めよ。\n\n（2）次の定積分の値を求めよ。\n（i）\\(\\displaystyle \\int_0^{\\sqrt3}\\frac{x\\sqrt{x^2+1}+2x^3+1}{x^2+1}dx\\)\n（ii）\\(\\displaystyle \\int_0^{\\frac{\\pi}{2}}\\sqrt{\\frac{1-\\cos x}{1+\\cos x}}dx\\)",
+      "hints": ["（1）\\(\\left| z-\\frac{i}{z} \\right| = \\left| \\frac{z^2 - i}{z} \\right| = \\frac{|z^2 - i|}{|z|} \\) であり、\\(|z|=2\\) より \\(|1/z|=1/2\\)。したがって、\\(|z^2 - i|\\) を複素数平面上での点 \\(i\\) と \\(z^2\\) との距離と考えて求める。\n\n（2）積分 (i) では、分子を整理し、分数を適切に分割してから計算する。\n積分 (ii) では、分数の分子と分母を三角関数の半角公式を用いて簡単にし、適切な置換を行う。"],
+      "solution": "（1）最大値 \\(\\frac{5}{2}\\)、最小値 \\(\\frac{3}{2}\\)\n（2）（i）\\(\\displaystyle 4 - \\log 4 + \\frac{\\pi}{3}\\)、（ii）\\(\\log 2\\)",
+      "detailedSolution": ["（1）\\(z\\) は \\(|z|=2\\) を満たすので、\n \\(\\left| z-\\frac{i}{z} \\right| = \\frac{1}{2}|z^2 - i|\\) となる。\nここで \\(|z^2|=4\\) なので、\\(z^2\\) は原点を中心とする半径 4 の円周上にある。\n点 \\(i\\) は原点から距離 1 のところにあるので、\\(z^2\\) と \\(i\\) の距離は最小 3、最大 5 となる。\nしたがって、求める最大値は \\(\\frac{5}{2}\\)、最小値は \\(\\frac{3}{2}\\) である。\n\n（2）（i）分子を整理し、適切に分割すると、\n\\[\\int_0^{\\sqrt3} 2x\\,dx + \\int_0^{\\sqrt3} \\frac{x\\sqrt{x^2+1}}{x^2+1}dx + \\int_0^{\\sqrt3} \\frac{-2x+1}{x^2+1}dx\\]\nに分けられる。\nそれぞれの積分を計算する。\n\n1. \\(\\int_0^{\\sqrt{3}} 2x\\,dx\\)\n   \\[ \\left[x^2\\right]_0^{\\sqrt{3}} = 3. \\]\n\n2. \\(\\int_0^{\\sqrt{3}} \\frac{x\\sqrt{x^2+1}}{x^2+1}\\,dx\\)\n   置換 \\( u = x^2+1 \\) を用いて、\\(du = 2x dx\\) と変形し、\n   \\[ \\int_{1}^{4} u^{-\\frac{1}{2}} \\cdot \\frac{du}{2} = \\left[ \\sqrt{u} \\right]_{1}^{4} = 2-1 = 1. \\]\n\n3. \\(\\int_0^{\\sqrt{3}} \\frac{-2x+1}{x^2+1}dx\\)\n   \\(\\int \\frac{-2x}{x^2+1}dx = -\\log (x^2+1)\\) を用いると、\n   \\[ \\left[ -\\log(x^2+1) \\right]_0^{\\sqrt{3}} = -\\log 4. \\]\n   一方、\\(\\int \\frac{1}{x^2+1}dx\\) は\\(x= \\tan \\theta \\)を用いて、\n   \\[ \\left[ \\theta \\right]_0^{\\dfrac{\\pi}{3}} = \\frac{\\pi}{3}. \\]\n\n 以上を足し合わせて、\n \\[ 4 - \\log 4 + \\frac{\\pi}{3}. \\]\n\n（ii）分数部分を半角の公式を用いて整理すると、\n\\[\\sqrt{\\frac{1-\\cos x}{1+\\cos x}} = \\tan \\frac{x}{2}\\]\nとなる。\n置換 \\(u = \\frac{x}{2}\\) を用いて積分を計算すると、\n\\[ 2 \\int_0^{\\frac{\\pi}{4}} \\tan u\\,du. \\]\n\\(\\int \\tan u\\,du = -\\log |\\cos u|\\) を用いて、\n\\[ -2 \\left[ \\log (\\cos u) \\right]_0^{\\frac{\\pi}{4}} = \\log 2. \\]\nよって、求める値は \\(\\log 2\\) となる。"]
+    }
+  }
+  ,
+  {
+    "year": 2025,
     "number": 4,
     "category": "理系",
     "content": {
