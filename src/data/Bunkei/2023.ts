@@ -69,7 +69,7 @@ export const Bunkei2023: Problem[] = [
     "number": 3,
     "category": "文系",
     "content": {
-      "question": "次の2問に答えよ。\n\n(1) \\(\\cos(2\\theta)\\) と \\(\\cos(3\\theta)\\) を、\\(\\cos\\theta\\) の式で表せ。\n\n(2) 半径 1 の円に内接する正五角形の一辺の長さが 1.15 より大きいか否かを判定し、理由を述べよ。",
+      "question": "次の2問に答えよ。\n\n(1) \\(\\cos2\\theta\\) と \\(\\cos3\\theta\\) を、\\(\\cos\\theta\\) の式で表せ。\n\n(2) 半径 1 の円に内接する正五角形の一辺の長さが 1.15 より大きいか否かを判定し、理由を述べよ。",
       "hints": [
         "2倍角の公式: \\(\\cos(2\\theta) = 2\\cos^2\\theta - 1\\)",
         "3倍角の公式: \\(\\cos(3\\theta) = 4\\cos^3\\theta - 3\\cos\\theta\\)",
